@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0B10">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_dashboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="110dp">
+
+        <LinearLayout
+            android:id="@+id/layout_dashboard_root"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <View android:layout_width="45dp" android:layout_height="45dp" android:background="@drawable/bg_dark_card" />
+                <LinearLayout
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp" android:orientation="vertical">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="경상국립대학교" android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="GYEONGSANG NATIONAL UNIVERSITY" android:textColor="#8A8A8E" android:textSize="10sp" android:letterSpacing="0.05" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="인지 위험도 모니터링" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="최근 대화 누적 분석" android:textColor="#8A8A8E" android:textSize="13sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="24dp" android:background="@drawable/bg_dash_card_dark" android:padding="20dp">
+                <TextView android:id="@+id/tv_llm_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="LLM 실행 모드" android:textColor="#8A8A8E" android:textSize="12sp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+                <TextView android:id="@+id/tv_llm_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="로컬 모드" android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_llm_label" />
+                <LinearLayout android:layout_width="130dp" android:layout_height="38dp" android:background="@drawable/bg_dash_toggle_pill" android:orientation="horizontal" android:padding="2dp" app:layout_constraintBottom_toBottomOf="@id/tv_llm_value" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"><TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:background="@drawable/bg_btn_blue_gradient" android:gravity="center" android:text="로컬" android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold" /><TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:gravity="center" android:text="API" android:textColor="#8A8A8E" android:textSize="12sp" /></LinearLayout>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="현재 컴퓨터에 있는 로컬 모델로 답변과 분석을 수행합니다." android:textColor="#8A8A8E" android:textSize="12sp" app:layout_constraintTop_toBottomOf="@id/tv_llm_value" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_risk_card"
+                android:layout_width="match_parent" android:layout_height="150dp"
+                android:layout_marginTop="16dp" android:padding="20dp"
+                android:background="@drawable/bg_dash_card_gradient"><TextView android:id="@+id/tv_risk_label" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="누적 위험 상태" android:textColor="#B0FFFFFF" android:textSize="12sp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" /><TextView android:id="@+id/tv_risk_status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="정상" android:textColor="#FFFFFF" android:textSize="36sp" android:textStyle="bold" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_risk_label" /><TextView android:id="@+id/tv_risk_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="안정적인 상태입니다." android:textColor="#B0FFFFFF" android:textSize="14sp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/tv_risk_status" /><ImageView android:id="@+id/iv_risk_dino" android:layout_width="wrap_content" android:layout_height="0dp" android:src="@drawable/status_safe" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" android:scaleType="fitCenter" android:adjustViewBounds="true" android:layout_marginEnd="10dp"/></androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="16dp" android:background="@drawable/bg_dash_card_dark" android:orientation="vertical">
+                <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/layout_toggle_detail" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="20dp"><ImageView android:id="@+id/iv_pie_icon" android:layout_width="45dp" android:layout_height="45dp" android:src="@android:drawable/ic_menu_report_image" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" /><LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:orientation="vertical" app:layout_constraintStart_toEndOf="@id/iv_pie_icon" app:layout_constraintEnd_toStartOf="@id/iv_expand_arrow" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="보조 지표" android:textColor="#8A8A8E" android:textSize="11sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="상세 지표 보기" android:textColor="#FFFFFF" android:textSize="17sp" android:textStyle="bold" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="평균, 추세, 게이지, 시간별 점수 흐름" android:textColor="#8A8A8E" android:textSize="11sp" /></LinearLayout><ImageView android:id="@+id/iv_expand_arrow" android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/arrow_down_float" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent" app:tint="#4ADE80" /></androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout android:id="@+id/layout_detail_content" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:paddingHorizontal="20dp" android:paddingBottom="24dp" android:visibility="gone">
+                    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#2A2C3A" android:layout_marginBottom="20dp" />
+                    <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:columnCount="2" android:rowCount="2"><LinearLayout android:layout_width="0dp" android:layout_height="85dp" android:layout_columnWeight="1" android:layout_marginEnd="6dp" android:layout_marginBottom="12dp" android:background="@drawable/bg_dash_toggle_pill" android:orientation="vertical" android:padding="16dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="전체 평균" android:textColor="#8A8A8E" android:textSize="11sp" /><TextView android:id="@+id/tv_total_avg" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="bottom" android:text="0.0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" /></LinearLayout><LinearLayout android:layout_width="0dp" android:layout_height="85dp" android:layout_columnWeight="1" android:layout_marginStart="6dp" android:layout_marginBottom="12dp" android:background="@drawable/bg_dash_toggle_pill" android:orientation="vertical" android:padding="16dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="최근 5회 평균" android:textColor="#8A8A8E" android:textSize="11sp" /><TextView android:id="@+id/tv_recent5_avg" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="bottom" android:text="0.0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" /></LinearLayout><LinearLayout android:layout_width="0dp" android:layout_height="85dp" android:layout_columnWeight="1" android:layout_marginTop="4dp" android:layout_marginEnd="6dp" android:background="@drawable/bg_dash_toggle_pill" android:orientation="vertical" android:padding="16dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="최근 횟수" android:textColor="#8A8A8E" android:textSize="11sp" /><TextView android:id="@+id/tv_recent_count" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="bottom" android:text="0" android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold" /></LinearLayout><LinearLayout android:layout_width="0dp" android:layout_height="85dp" android:layout_columnWeight="1" android:layout_marginTop="4dp" android:layout_marginStart="6dp" android:background="@drawable/bg_dash_toggle_pill" android:orientation="vertical" android:padding="16dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="추세" android:textColor="#8A8A8E" android:textSize="11sp" /><TextView android:id="@+id/tv_trend" android:layout_width="wrap_content" android:layout_height="match_parent" android:gravity="bottom" android:text="데이터 부족" android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold" /></LinearLayout></GridLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:background="@drawable/bg_dash_toggle_pill" android:orientation="vertical" android:padding="20dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="—  누적 위험도 게이지" android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" /><com.github.mikephil.charting.charts.PieChart android:id="@+id/risk_gauge_chart" android:layout_width="match_parent" android:layout_height="200dp" android:layout_marginTop="16dp" /></LinearLayout>
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:background="@drawable/bg_dash_toggle_pill" android:orientation="vertical" android:padding="20dp"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="—  시간별 점수 추이" android:textColor="#FFFFFF" android:textSize="14sp" android:textStyle="bold" /><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:gravity="center" android:orientation="vertical"><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal"><View android:layout_width="24dp" android:layout_height="12dp" android:background="#2DB4FF" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:layout_marginEnd="12dp" android:text="치매 의심 점수" android:textColor="#FFFFFF" android:textSize="11sp" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="- - -" android:textColor="#EAB308" android:textSize="14sp" android:textStyle="bold" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="주의 기준" android:textColor="#FFFFFF" android:textSize="11sp" /></LinearLayout><LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:gravity="center_vertical" android:orientation="horizontal"><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="- - -" android:textColor="#EF4444" android:textSize="14sp" android:textStyle="bold" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="6dp" android:text="위험 기준" android:textColor="#FFFFFF" android:textSize="11sp" /></LinearLayout></LinearLayout><com.github.mikephil.charting.charts.LineChart android:id="@+id/time_line_chart" android:layout_width="match_parent" android:layout_height="220dp" android:layout_marginTop="16dp" /></LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/view_status_protection"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/bg_status_bar_protection"
+        android:alpha="0.8" />
+
+</FrameLayout>

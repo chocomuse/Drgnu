@@ -1,141 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main_gradient"
-    android:padding="16dp">
+    android:background="#0A0B10">
 
-    <LinearLayout
-        android:id="@+id/layout_header"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_chat_root"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_neumorphic_box"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pretendard_bold"
-            android:text="Dr.GUN AI Analysis System"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:letterSpacing="0.05" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="김도윤 / 조재민 / 김우성 / 안재영"
-            android:textColor="#B0B0B0"
-            android:textSize="13sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_analysis_box"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_neumorphic_box"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/btn_chat_record"
-        app:layout_constraintTop_toBottomOf="@id/layout_header">
+        android:layout_height="match_parent"
+        android:paddingBottom="70dp">
 
         <LinearLayout
-            android:id="@+id/layout_pills_header"
+            android:id="@+id/layout_header_box"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_neumorphic_title"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="14dp">
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/pill_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/bg_neumorphic_pill"
-                android:backgroundTint="@color/neon_blue"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="5dp"
-                android:text="실시간 분석"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:fontFamily="@font/pretendard_bold" />
+                android:fontFamily="@font/pretendard_bold"
+                android:text="Dr.GUN AI Analysis System"
+                android:textColor="#FFFFFF"
+                android:textSize="19sp"
+                android:letterSpacing="0.03"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/pill_wait"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/bg_neumorphic_pill"
-                android:backgroundTint="@color/white"
-                android:paddingHorizontal="14dp"
-                android:paddingVertical="5dp"
-                android:text="대기 중"
-                android:textColor="@color/white"
-                android:textSize="11sp" />
+                android:layout_marginTop="8dp"
+                android:text="김도윤 / 조재민 / 김우성 / 안재영"
+                android:textColor="#8A8A8E"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_pills_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_dark_card"
+            android:padding="16dp"
+            app:layout_constraintTop_toBottomOf="@id/layout_header_box">
+
+            <LinearLayout
+                android:id="@+id/layout_pills_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/pill_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_pill_gray"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="8dp"
+                    android:text="실시간 분석"
+                    android:textColor="#8A8A8E"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/pretendard_bold" />
+
+                <TextView
+                    android:id="@+id/pill_wait"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_pill_gray"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="8dp"
+                    android:text="대기"
+                    android:textColor="#8A8A8E"
+                    android:textSize="11sp" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/pill_ready"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_neumorphic_pill"
-                android:backgroundTint="@color/white"
+                android:background="@drawable/bg_pill_green"
                 android:paddingHorizontal="14dp"
-                android:paddingVertical="5dp"
-                android:text="준비완료"
-                android:textColor="@color/white"
-                android:textSize="11sp" />
-        </LinearLayout>
+                android:paddingVertical="8dp"
+                android:text="준비 완료"
+                android:textColor="#4ADE80"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <FrameLayout
+            android:id="@+id/layout_content_box"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_dark_card"
+            app:layout_constraintBottom_toTopOf="@id/layout_bottom_box"
+            app:layout_constraintTop_toBottomOf="@id/layout_pills_box">
 
             <LinearLayout
                 android:id="@+id/layout_empty_popup"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="32dp"
-                android:background="@drawable/bg_neumorphic_box"
-                android:backgroundTint="#2D3748"
-                android:elevation="12dp"
-                android:gravity="center"
                 android:orientation="vertical"
-                android:padding="28dp"
+                android:gravity="center_horizontal"
+                android:padding="24dp"
                 android:visibility="visible">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/bg_neumorphic_pill"
-                    android:backgroundTint="@color/neon_green"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/bg_pill_gray"
                     android:fontFamily="@font/pretendard_bold"
-                    android:paddingHorizontal="18dp"
-                    android:paddingVertical="7dp"
-                    android:text="분석 준비완료"
-                    android:textColor="@color/main_bg"
-                    android:textSize="13sp" />
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:text="분석 준비 완료"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="8dp"
-                    android:text="아직 대화기록이 없습니다.\n\n녹음을 시작하면 답변과 위험도 분석이\n이곳에 차례대로 표시됩니다."
-                    android:textColor="#D0D0D0"
-                    android:textSize="14sp" />
+                    android:layout_marginBottom="32dp"
+                    android:text="아직 대화 기록이 없습니다."
+                    android:textColor="#A1A1AA"
+                    android:textSize="15sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:lineSpacingExtra="6dp"
+                    android:text="녹음을 시작하면 답변과 위험도 분석이\n이곳에 차례대로 표시됩니다."
+                    android:textColor="#71717A"
+                    android:textSize="14sp"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="6dp"
+                    android:text="대화가 쌓이면 메시지를 클릭해 해당\n시점의 분석 결과를 다시 볼 수 있습니다."
+                    android:textColor="#71717A"
+                    android:textSize="14sp"
+                    android:gravity="center" />
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -146,22 +172,45 @@
                 android:padding="16dp"
                 android:visibility="gone" />
         </FrameLayout>
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_chat_record"
+        <LinearLayout
+            android:id="@+id/layout_bottom_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_dark_card"
+            android:padding="0dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <LinearLayout
+                android:id="@+id/btn_chat_record"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/bg_btn_blue_gradient"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_btn_record_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pretendard_bold"
+                    android:text="녹음 시작"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view_status_protection"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="@drawable/bg_glass"
-        android:backgroundTint="@color/neon_blue"
-        android:elevation="8dp"
-        android:fontFamily="@font/pretendard_bold"
-        android:stateListAnimator="@null"
-        android:text="녹음 시작"
-        android:textColor="@color/white"
-        android:textSize="19sp"
-        app:cornerRadius="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        android:layout_height="80dp"
+        android:background="@drawable/bg_status_bar_protection"
+        android:alpha="0.8" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

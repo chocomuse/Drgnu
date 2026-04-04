@@ -2,27 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="8dp"
-    android:gravity="start">
-
-    <ImageView
-        android:id="@+id/iv_ai_icon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:background="@drawable/bg_pill"
-        android:backgroundTint="#2D3748"
-        android:padding="4dp"/>
+    android:gravity="start"
+    android:padding="8dp">
 
     <TextView
-        android:id="@+id/tv_ai_message"
+        android:id="@+id/tv_chat_ai_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxWidth="260dp"
-        android:background="@drawable/bg_chat_ai"
-        android:padding="16dp"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:layout_marginEnd="60dp"
+        android:background="@drawable/bg_dash_card_dark"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:text="AI 답변"
+        android:textColor="#E4E4E7"
+        android:textSize="15sp" />
 </LinearLayout>
